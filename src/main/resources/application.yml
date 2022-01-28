@@ -1,0 +1,21 @@
+server:
+   port: 8443
+   servlet:
+      context-path: /spring-saml
+   ssl:
+      enabled: true
+      key-alias: spring
+      key-store: "classpath:saml/keystore.jks"
+      key-store-password: secret
+spring:
+   security:
+      saml2:
+         relyingparty:
+            registration:
+               okta:
+                  identityprovider:
+                     entity-id: http://www.okta.com/exk3ngtw0bYRXEZ3z5d7
+                     verification.credentials:
+                        - certificate-location: "classpath:saml/okta.cert"
+                     singlesignon.url: https://dev-71366083.okta.com/app/dev-71366083_springsaml_1/exk3ngtw0bYRXEZ3z5d7/sso/saml
+                     singlesignon.sign-request: false
